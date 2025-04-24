@@ -82,6 +82,13 @@ html, body {
     color: #6A5AF9;
     text-decoration: none;
   }
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+    height: 14px;
+  }
   
   @media (max-width: 768px) {
     html, body {
