@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Chủ</title>
+<link rel="stylesheet" href="./css/index.css"
+>
+<link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body>
+    <div class="container1">
+        <div class="nav">
+            <div class="nav-left">📘 Tài Chính Cá Nhân K24_Rikkei</div>
+            <button class="account-btn" onclick="openModal()">Tài khoản ▾</button>
+
+        </div>
+        
+        <div class="total">
+            <div class="banner">
+                 💡Kiểm soát chi tiêu thông minh 
+                 
+                <span>Theo dõi ngân sách và thu chi hàng tháng dễ dàng</span>
+            </div> 
+            
+            <div class="content">
+                <h1>📊 Quản Lý Tài Chính Cá Nhân</h1>
+                <div class="month-select">
+                    <label for="monthInput">📅 Chọn tháng:</label>
+                    <input id="monthInput" placeholder="Chọn tháng" type="month" />
+                  </div> 
+
+                  <div class="buggetI">
+                    <label for="budgetInput">💰 Ngân sách tháng: </label>
+                    <input id="budgetInput" placeholder="VD: 5.000.000 VND" type="text" />
+                    <button>Lưu</button>
+                  </div>
+                
+                  <div class="balance">
+                    <span>Số tiền chi tiêu còn lại: </span>
+                    <span class="vnd">0 VND</span>
+                  </div>
+                  
+                  <div class="section">
+                    <h2>💼 Quản lý danh mục (theo tháng)</h2> 
+                    <div class="category-input">
+                      <input id="categoryName" placeholder="Tên danh mục" type="text" />
+                      <input id="categoryLimit" placeholder="Giới hạn (VND)" type="text" />
+                       <button class="addbtn" >Thêm danh mục</button>
+                    </div>
+                    <ul id="categoryList">
+                      <!-- hàm hiển thị danh mục  -->
+                    </ul>
+                  </div>
+
+                  <div class="section1">
+                    <div class="transaction-input">
+                      <input id="expenseAmount" placeholder="Số tiền (VND)" type="text" />
+                      <select id="expenseCategory">
+                        <option value="">Chọn danh mục</option>
+                      </select>
+                      <input id="expenseNote" placeholder="Ghi chú" type="text" />
+                      <button class="btn1" onclick="createExpense()">Thêm</button>
+                    </div>
+                  </div>
+
+                  <div class="section">
+                    <h2>🧾 Lịch sử giao dịch</h2>
+                    <div class="search-bar">
+                      <input id="searchInput" placeholder="Tìm nội dung" type="text" oninput="filterTransactions()" />
+                      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                      <button >Sắp xếp theo giá</button>
+                    </div>
+                    <ul ></ul>
+                  </div> 
+                  <div class="section2">
+                    <p id="thongbao">Danh mục "{tiền ăn}" đã vượt giới hạn: {1,060,000} / {1,000,000} VND</p>
+                  </div>
+
+                  <div class="section">
+                    <h2>📆 Thống kê chi tiêu các tháng</h2>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Tháng</th>
+                          <th>Chi tiêu</th>
+                          <th>Ngân sách</th>
+                          <th>Trạng thái</th>
+                        </tr>
+                      </thead>
+                      <tbody id="statsBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </main>
+
+            </div>
+        </div>
+
+        <div id="accountModal" class="modal">
+            <div class="modal-overlay" onclick="closeModal()"></div>
+
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3>Tài khoản</h3>
+                <ul>
+                    <li><a href="#">👤 Thông tin cá nhân</a></li>
+                    <li><a href="#">🔒 Đổi mật khẩu</a></li>
+                    <li><a href="#">🚪 Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <footer> © 2025 Quản Lý Tài Chính Cá Nhân by MinhDuc </footer>
+    </div>
+
+    <script src="./js/index.js"> </script>
+</body>
+
+</html>
