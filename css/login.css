@@ -88,6 +88,10 @@ html, body {
     text-decoration: none;
   }
   
+  #loginEmailError , #loginPasswordError{
+    color: red;
+    font-size: 12px;
+  }
   @media (max-width: 768px) {
     html, body {
       overflow: auto;

@@ -9,14 +9,18 @@ document.getElementById('registerBtn').addEventListener('click', function () {
   
     let isValid = true;
   
-    // const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
     if (!email) {
       document.getElementById('emailError').textContent = 'Email không được để trống';
-      isValid = false;}
-    // } else if (!emailRegex.test(email)) {
-    //   document.getElementById('emailError').textContent = 'Email phải đúng định dạng';
-    //   isValid = false;
-    // }
+      isValid = false;
+    }else if (!email.includes("@") || email.indexOf("@") === 0 || email.endsWith("@")) {
+        document.getElementById('emailError').textContent = 'Email phải chứa "@" và không ở đầu/cuối';
+        isValid = false;
+      }
+      else if (!email.includes(".")) {
+        document.getElementById('emailError').textContent = 'Email phải chứa dấu chấm (.)';
+        isValid = false;
+      }
+      
   
     if (!password) {
       document.getElementById('passwordError').textContent = 'Mật khẩu không được để trống';
@@ -33,22 +37,22 @@ document.getElementById('registerBtn').addEventListener('click', function () {
       document.getElementById('confirmError').textContent = 'Mật khẩu xác nhận phải trùng khớp mật khẩu khi đăng ký';
       isValid = false;
     }
-  
-    // Nếu có lỗi thì dừng lại
+
     if (!isValid) return;
   
-    const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+    const accounts = JSON.parse(localStorage.getItem("user")) || [];
     const isExist = accounts.some(account => account.email === email);
     if (isExist) {
       document.getElementById('emailError').textContent = 'Email này đã được đăng ký!';
       return;
     }
-  
-    // Lưu tài khoản
-    accounts.push({ email, password });
-    localStorage.setItem("accounts", JSON.stringify(accounts));
-  
-    // Điều hướng sang login
+
+    const newAccount = {
+      email: email,
+      password: password
+    };
+    accounts.push(newAccount);
+    localStorage.setItem("user", JSON.stringify(accounts));
     window.location.href = "login.html";
   });
   
