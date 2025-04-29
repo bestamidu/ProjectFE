@@ -176,7 +176,7 @@ flex-direction: column;
       justify-content: center;
       gap: 3px;
   }
-  .addbtn{
+  .addBtn{
       background-color: #22C55E;
       border: none;
       width: 163.16px;
@@ -332,3 +332,38 @@ width: 720px;
     border: none;
     margin-left: 10px;
   } 
+  #categoryList {
+    list-style: none; /* Xóa dấu chấm mặc định của li */
+    padding-left: 0;  /* Xóa khoảng cách thụt vào */
+  }
+  #categoryList li {
+    display: flex;
+    justify-content: space-between; /* Đẩy tên danh mục bên trái, nút bên phải */
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #ccc; /* Kẻ nhẹ dưới mỗi danh mục cho đẹp */
+  }
+  
+  #categoryList button {
+    margin-left: 8px; /* Tạo khoảng cách giữa 2 nút */
+  }
+  .buttonCouple {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .buttonCouple .editBtn  {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 14px;
+  }
+  .deleteBtn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 14px;
+  }
+  .buttonCouple button:hover {
+    text-decoration: underline;
+  }

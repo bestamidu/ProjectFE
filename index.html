@@ -37,7 +37,7 @@
                     <label for="monthInput">📅 Chọn tháng:</label>
                     <input id="monthInput" placeholder="Chọn tháng" type="month" />
                     <br>
-                    <!-- <p id="error-message" style="color: red; margin-top: 10px;"></p> -->
+                    <p id="error-monthInput" style="color: red; font-size: 14px;"></p>
                   </div> 
 
                   <div class="buggetI">
@@ -45,7 +45,7 @@
                     <input id="budgetInput" placeholder="VD: 5.000.000 VND" type="text" />
                     <button  class="btnSave">Lưu</button>
                     <br>
-                    <p id="error-message" style="color: red; margin-top: 10px;"></p>
+                    <p id="error-budgetInput" style="color: red; font-size: 14px;"></p>
 
                   </div>
                 
@@ -58,8 +58,10 @@
                     <h2>💼 Quản lý danh mục (theo tháng)</h2> 
                     <div class="category-input">
                       <input id="categoryName" placeholder="Tên danh mục" type="text" />
+                      <p id="error-categoryName" style="color: red; font-size: 14px;"></p>
                       <input id="categoryLimit" placeholder="Giới hạn (VND)" type="text" />
-                       <button class="addbtn" >Thêm danh mục</button>
+                      <p id="error-categoryLimit" style="color: red; font-size: 14px;"></p>
+                      <button class="addBtn">Thêm danh mục</button>
                     </div>
                     <ul id="categoryList">
                       <!-- hàm hiển thị danh mục  -->
@@ -130,6 +132,21 @@
                 </ul>
             </div>
         </div>
+        <!-- Modal Sửa danh mục -->
+ <!-- Modal Sửa Danh Mục -->
+<div id="editCategoryModal" class="modal" style="display: none;">
+  <div class="modal-overlay" onclick="closeEditModal()"></div>
+  <div class="modal-content">
+    <h3>Sửa danh mục</h3>
+    <input id="editCategoryName" type="text" placeholder="Tên danh mục mới" />
+    <input id="editCategoryLimit" type="text" placeholder="Giới hạn mới (VND)" />
+    <div style="margin-top: 10px;">
+      <button onclick="saveEditCategory()" class="btn1">Lưu</button>
+      <button onclick="closeEditModal()" class="btn2">Hủy</button>
+    </div>
+  </div>
+</div>
+
 
         <div id="logoutModal" class="modal" style="display: none;">
           <div class="modal-overlay"></div>
