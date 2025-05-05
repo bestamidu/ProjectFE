@@ -26,5 +26,6 @@ document.getElementById("loginBtn").addEventListener("click", function(){
         document.getElementById("loginPasswordError").textContent = "Sai mật khẩu!";
         return;
       }
+      localStorage.setItem("currentUser", JSON.stringify(checkAccount));
       window.location.href = "../index.html";
 })

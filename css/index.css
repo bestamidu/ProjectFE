@@ -219,6 +219,9 @@ align-items: center;
 justify-content: center;
 margin-bottom: 20px;
 }
+.transaction-input{
+  display:flex;
+}
 .buggetI{
   width: 768px;
   height: 90px;
@@ -367,3 +370,107 @@ width: 720px;
   .buttonCouple button:hover {
     text-decoration: underline;
   }
+  /* Cho modal sửa đồng bộ với các modal khác */
+.modalEdit {
+  width: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Input trong modal sửa */
+.modalEdit .edit-input {
+  width: 90%;
+  padding: 10px 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Nhóm nút Lưu Hủy trong modal */
+.modalEdit .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Nút */
+.modalEdit .btn1, 
+.modalEdit .btn2 {
+  width: 100px;
+  height: 36px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modalEdit .btn1 {
+  background-color: #3fc266;
+  color: white;
+  border: none;
+}
+
+.modalEdit .btn2 {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+.modalEdit .couple{
+  display: flex;
+
+}
+.modalEdit .close{
+  position: absolute;
+  top: 5px;
+  left: 350px
+  ;
+  width: 110px;
+
+}
+#transactionList {
+  list-style: none;
+  padding: 0;
+}
+#transactionList li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+#transactionList button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+#transactionList button:hover {
+  background-color: #cc0000;
+}
+/* Đặt màu nền xanh lá cây cho các nút phân trang */
+#prevPage, #nextPage {
+  background-color: #4CAF50;  /* Màu xanh lá cây */
+  color: white;  /* Màu chữ trắng */
+  border: 2px solid #4CAF50;  /* Viền màu xanh lá cây */
+  border-radius: 15px;  /* Đường viền cong */
+  padding: 10px 20px;  /* Khoảng cách xung quanh chữ */
+  cursor: pointer;  /* Hiển thị con trỏ khi hover */
+  text-align: center;  /* Căn giữa văn bản */
+}
+
+/* Thêm hiệu ứng khi hover */
+#prevPage:hover, #nextPage:hover {
+  background-color: #45a049;  /* Màu nền xanh đậm khi hover */
+  border-color: #45a049;  /* Màu viền xanh đậm khi hover */
+}
+#pagination {
+  text-align: center;  /* Căn giữa các nút */
+  margin-top: 20px;  /* Thêm khoảng cách phía trên */
+}

@@ -1,0 +1,64 @@
+.modalDelete {
+    width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modalDelete h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  .modalDelete p {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .modalDelete .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .modalDelete .btn1, 
+  .modalDelete .btn2 {
+    width: 100px;
+    height: 36px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+  .modalDelete .btn1 {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+  
+  .modalDelete .btn2 {
+    background-color: #ccc;
+    color: black;
+    border: none;
+  }
+  .couple{
+    display: flex;
+    
+  }  
+  .couple h2{
+    font-size: 30px;
+    
+  } 
+
+  .couple .close{
+  position: absolute;
+  top: 5px;
+  left: 350px
+  ;
+  width: 110px;
+  }

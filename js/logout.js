@@ -19,8 +19,12 @@
   function closeModal1 (){
     modal.style.display = "none";
   }
+  // confirmBtn.addEventListener("click", function () {
+  //   // localStorage.removeItem("user");
+  //   window.location.href = "/pages/login.html";
+  // });
   confirmBtn.addEventListener("click", function () {
-    localStorage.removeItem("user");
+    localStorage.removeItem("currentUser"); // Xóa user đang đăng nhập
     window.location.href = "/pages/login.html";
-  });
+});
 
