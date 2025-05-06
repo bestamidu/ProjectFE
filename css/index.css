@@ -159,17 +159,21 @@ flex-direction: column;
   .balance  .vnd{
       color: rgb(68, 219, 68);
   }
-  .section{
+
+    .section {
       width: 720px;
-      height: 290px;
       background-color: #ffffff;
       color: rgb(56, 56, 56);
-      /* text-align: center; */
-      justify-content: center;
-      align-items: center;
-      font-size: 16px;
       border-radius: 10px;
-  }
+      padding: 15px 20px;
+      box-sizing: border-box;
+    
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
   .category-input{
       display: flex;
       text-align: center;
@@ -507,4 +511,66 @@ width: 720px;
 
 #deleteTrans:hover {
   background-color: rgb(255, 255, 255);  
+}
+.section2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 720px;
+  background-color: #ffffff;
+  color: rgb(56, 56, 56);
+  text-align: center;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  align-items: center;
+
+  /* ✅ Sửa các lỗi gây ẩn nội dung */
+  overflow: visible;
+  height: auto;
+  min-height: 90px;
+}
+
+.section2 h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: red;
+  width: 100%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+#transactionWarnings {
+  margin: 10px 0;
+  padding: 15px;
+  background-color: #fff5f5;
+  border: 1px solid #ff4d4d;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* ✅ Đảm bảo dòng dài không bị tràn */
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+#transactionWarnings p {
+  margin: 0;
+  color: #ff4d4d;
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+}
+
+#transactionWarnings p::before {
+  content: "🚨";
+  margin-right: 8px;
 }

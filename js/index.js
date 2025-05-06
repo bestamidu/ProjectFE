@@ -1,4 +1,4 @@
-// Modal Functions
+// Cácc modal đóng mở 
 function openModal() {
   document.getElementById("accountModal").style.display = "block";
 }
@@ -38,13 +38,13 @@ function closeDeleteTransactionModal() {
   transactionToDelete = null;
 }
 
-// Authentication Check
+// check đnhapđnhap
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 if (!currentUser) {
   window.location.href = "/pages/login.html";
 }
 
-// Data Initialization
+// 
 let budgets = JSON.parse(localStorage.getItem("budgets")) || [];
 let monthlyCategories = JSON.parse(localStorage.getItem("monthlyCategories")) || [];
 let deleteMonth = null;
@@ -53,7 +53,7 @@ let transactionToDelete = null;
 let editMonth = "";
 let editCategoryId = "";
 
-// Error Handling Functions
+//check lỗilỗi
 function showInputError(inputId, message) {
   document.getElementById(`error-${inputId}`).textContent = message;
 }
@@ -62,7 +62,7 @@ function clearInputError(inputId) {
   document.getElementById(`error-${inputId}`).textContent = "";
 }
 
-// Budget Management
+// phần đầu qli budgetbudget
 document.querySelector(".btnSave").addEventListener("click", function () {
   const month = document.getElementById("monthInput").value;
   const budgetInput = document.getElementById("budgetInput").value.trim();
@@ -100,7 +100,7 @@ document.querySelector(".btnSave").addEventListener("click", function () {
   renderBalance();
 });
 
-// Render Balance
+// hthi ngân sáchsách
 function renderBalance() {
   const month = document.getElementById("monthInput").value;
   const balanceDisplay = document.getElementById("vnd");
@@ -113,7 +113,7 @@ function renderBalance() {
   balanceDisplay.textContent = `${remaining.toLocaleString()} VND`;
 }
 
-// Month Input Change Handler
+// cập nhật tương ứng với dữ liệu tháng đó.
 document.getElementById("monthInput").addEventListener("change", function () {
   const month = this.value;
   clearCategoryInput();
@@ -130,7 +130,7 @@ document.getElementById("monthInput").addEventListener("change", function () {
   }
 });
 
-// Category Management
+// danh muc quan li 
 document.querySelector(".addBtn").addEventListener("click", function () {
   const month = document.getElementById("monthInput").value;
   const name = document.getElementById("categoryName").value.trim();
@@ -219,6 +219,7 @@ function renderCategoryList() {
           </li>
       `;
   });
+  renderTransactionWarnings();
 }
 
 // chinh sua danh muc
@@ -292,6 +293,7 @@ function confirmDeleteCategory() {
   renderCategoryList();
   renderCategoryOptions();
   closeDeleteModal();
+  renderTransactionWarnings();
 }
 
 // show cac optionsoptions
@@ -384,6 +386,7 @@ document.querySelector(".btn1").addEventListener("click", function () {
   renderCategoryOptions();
   clearExpenseForm();
   clearCategoryInput();
+  renderTransactionWarnings();
 
   showInputError("noteCate", "✅ Thêm chi tiêu thành công!");
   document.getElementById("error-noteCate").style.color = "green";
@@ -419,6 +422,7 @@ function confirmDeleteTransaction() {
       renderBalance();
       renderCategoryList();
       renderCategoryOptions();
+      renderTransactionWarnings();
   }
   closeDeleteTransactionModal();
 }
@@ -436,6 +440,7 @@ function sortTransactions(order) {
   }
   localStorage.setItem("transactions", JSON.stringify(transactions));
   renderTransactionList();
+  renderTransactionWarnings();
 }
 
 function renderTransactionList(searchQuery = "") {
@@ -510,3 +515,38 @@ document.getElementById("monthInput").addEventListener("change", function () {
   currentPage = 1;
   renderTransactionList();
 });
+
+
+function renderTransactionWarnings() {
+  const month = document.getElementById("monthInput").value;
+  const warningDiv = document.getElementById("transactionWarnings");
+  warningDiv.innerHTML = ""; // Xóa các cảnh báo cũ
+
+  const monthData = monthlyCategories.find(m => m.month === month);
+  if (!monthData) {
+      warningDiv.innerHTML = "<p>Chưa có dữ liệu danh mục cho tháng này.</p>";
+      return;
+  }
+
+  let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+  let hasWarnings = false;
+
+  monthData.categories.forEach(category => {
+      const categoryTransactions = transactions.filter(
+          t => t.month === month && t.categoryId === category.name
+      );
+      const totalSpent = categoryTransactions.reduce((sum, t) => sum + t.amount, 0);
+
+      if (totalSpent > category.budget) {
+          hasWarnings = true;
+          warningDiv.innerHTML += `
+              <p style="color: red;">Danh mục "${category.name}" đã vượt giới hạn: 
+              ${totalSpent.toLocaleString()} / ${category.budget.toLocaleString()} VND</p>
+          `;
+      }
+  });
+
+  if (!hasWarnings) {
+      warningDiv.innerHTML = "<p>Không có danh mục nào vượt giới hạn.</p>";
+  }
+}
