@@ -28,3 +28,16 @@
     window.location.href = "/pages/login.html";
 });
 
+// Logout Modal Functions
+document.getElementById("logoutLi").addEventListener("click", function () {
+  document.getElementById("logoutModal").style.display = "block";
+});
+
+document.getElementById("confirmLogout").addEventListener("click", function () {
+  localStorage.removeItem("currentUser");
+  window.location.href = "/pages/login.html";
+});
+
+document.getElementById("cancelLogout").addEventListener("click", function () {
+  document.getElementById("logoutModal").style.display = "none";
+});
