@@ -161,7 +161,7 @@ flex-direction: column;
   }
   .section{
       width: 720px;
-      height: 258px;
+      height: 290px;
       background-color: #ffffff;
       color: rgb(56, 56, 56);
       /* text-align: center; */
@@ -198,6 +198,21 @@ flex-direction: column;
       border-radius: 10px;
       
   }
+  .mainSection , h4  {
+    font-size: 17px;   
+    margin-top: 15px;
+    margin-left: 5px;
+}
+ .mainSection{
+  width: 720px;
+  height: 90px;
+  background-color: #ffffff;
+  color: rgb(56, 56, 56);
+  
+  border-radius: 10px;
+  margin-bottom: 50px;
+ }
+
 /* table{
 display: flex;
 align-items: center;
@@ -454,23 +469,42 @@ width: 720px;
 #transactionList button:hover {
   background-color: #cc0000;
 }
-/* Đặt màu nền xanh lá cây cho các nút phân trang */
-#prevPage, #nextPage {
-  background-color: #4CAF50;  /* Màu xanh lá cây */
-  color: white;  /* Màu chữ trắng */
-  border: 2px solid #4CAF50;  /* Viền màu xanh lá cây */
-  border-radius: 15px;  /* Đường viền cong */
-  padding: 10px 20px;  /* Khoảng cách xung quanh chữ */
-  cursor: pointer;  /* Hiển thị con trỏ khi hover */
-  text-align: center;  /* Căn giữa văn bản */
+#prevPage , #nextPage {
+  background-color: #4CAF50;  
+  color: white; 
+  border: 2px solid #4CAF50; 
+  border-radius: 15px;  
+  padding: 10px 20px; 
+  cursor: pointer;  
+  text-align: center;
+  width: 130px; 
 }
 
-/* Thêm hiệu ứng khi hover */
 #prevPage:hover, #nextPage:hover {
-  background-color: #45a049;  /* Màu nền xanh đậm khi hover */
-  border-color: #45a049;  /* Màu viền xanh đậm khi hover */
+  background-color: #45a049; 
+  border-color: #45a049;  /
 }
 #pagination {
-  text-align: center;  /* Căn giữa các nút */
-  margin-top: 20px;  /* Thêm khoảng cách phía trên */
+  text-align: center;  
+  margin-top: 20px;  
+}
+.btnSort{
+  background-color: #3b82f6;
+  border-radius: 10px;
+  border: none;
+  color:white;
+  width: 90px;
+
+}
+#deleteTrans {
+  background-color: rgb(255, 255, 255);  
+  color: white;        
+  border: none;          
+  padding: 10px 20px;  
+  cursor: pointer;     
+  border-radius: 5px;
+}
+
+#deleteTrans:hover {
+  background-color: rgb(255, 255, 255);  
 }

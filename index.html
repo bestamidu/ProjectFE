@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/responsive.css"> 
     <link rel="stylesheet" href="./css/logout.css">
     <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="https://fontawesome.com/">
 
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -71,7 +72,11 @@
                     <p id="checkkk" style="color: red; font-size: 14px;"></p>
                   </div>
 
+
+                   <div class="mainSection">
+                    <h4>Chi tiêu danh mục : </h4> 
                   <div class="section1">
+                   
                     <div class="transaction-input">
                       <input id="chooseMoney" placeholder="Số tiền (VND)" type="text" />
                       <p id="error-chooseMoney" style="color:red; font-size:14px;"></p>
@@ -84,32 +89,19 @@
                       <button class="btn1">Thêm</button>
                     </div>
                   </div>
-                  
+                </div>
 
-                  <!-- <div class="section">
-                    <h2>🧾 Lịch sử giao dịch</h2>
-                    <div class="body1">
-                      <div class="search-bar">
-                      <input id="searchInput" placeholder="Tìm nội dung" type="text" />
-                      <button  class="best"><i class="fa-solid fa-magnifying-glass"></i></button>
-                      <button  class="btnS">Sắp xếp theo giá</button>
-                    </div> 
-                   </div>
-                    
-                    <ul ></ul>
-                  </div>  -->
-                   
                   <div class="section">
                     <h2>🧾 Lịch sử giao dịch</h2>
                     <div class="body1">
                       <div class="search-bar">
                         <input id="searchInput" placeholder="Tìm nội dung" type="text" />
                         <button class="best"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        <button class="btnSort" id="sortAscBtn">Sắp xếp tăng dần</button>
-                        <button class="btnSort" id="sortDescBtn">Sắp xếp giảm dần</button>
+                        <button class="btnSort" id="sortAscBtn"> <i class="fa-solid fa-arrow-up"></i></button>
+                        <button class="btnSort" id="sortDescBtn"><i class="fa-solid fa-arrow-down"></i></button>
                       </div>
                     </div>
-                    <ul id="transactionList"></ul> <!-- Thêm id="transactionList" -->
+                    <ul id="transactionList"></ul>
 
                     <div id="pagination">
                       <button id="prevPage" class="btnSort">Trang trước</button>
@@ -118,7 +110,7 @@
                     </div>
 
 
-                    
+
                   </div>
                   
                   <div class="section2">
@@ -163,21 +155,21 @@
             </div>
         </div>
 
-<div id="editCategoryModal" class="modal" style="display: none;">
-  <div class="modal-overlay" onclick="closeEditModal()"></div>
-  <div class="modal-content modalEdit">
-   <div class="couple">
-    <h3>Sửa danh mục</h3>
-    <span class="close" onclick="closeEditModal()">&times;</span>
-  </div>
-    <input id="editCategoryName" type="text" placeholder="Tên danh mục mới" class="edit-input"/>
-    <input id="editCategoryLimit" type="text" placeholder="Giới hạn mới (VND)" class="edit-input"/>
-    <div class="button-group">
-      <button onclick="saveEditCategory()" class="btn1">Lưu</button>
-      <button onclick="closeEditModal()" class="btn2">Hủy</button>
+         <div id="editCategoryModal" class="modal" style="display: none;">
+           <div class="modal-overlay" onclick="closeEditModal()"></div>
+             <div class="modal-content modalEdit">
+              <div class="couple">
+            <h3>Sửa danh mục</h3>
+           <span class="close" onclick="closeEditModal()">&times;</span>
+           </div>
+           <input id="editCategoryName" type="text" placeholder="Tên danh mục mới" class="edit-input"/>
+           <input id="editCategoryLimit" type="text" placeholder="Giới hạn mới (VND)" class="edit-input"/>
+         <div class="button-group">
+         <button onclick="saveEditCategory()" class="btn1">Lưu</button>
+           <button onclick="closeEditModal()" class="btn2">Hủy</button>
+             </div>
+         </div>
     </div>
-  </div>
-</div>
 
 
 
@@ -203,7 +195,20 @@
     </div>
   </div>
 </div>
-
+     <div id="deleteTransactionModal" class="modal" style="display: none;">
+            <div class="modal-overlay" onclick="closeDeleteTransactionModal()"></div>
+               <div class="modal-content modalDelete">
+                <div class="couple">
+                <h3>Xác nhận xóa giao dịch</h3>
+                <span class="close" onclick="closeDeleteTransactionModal()">×</span>
+                </div>
+                 <p>Bạn có chắc chắn muốn xóa giao dịch này không?</p>
+                  <div class="button-group">
+                    <button onclick="confirmDeleteTransaction()" class="btn1">Xóa</button>
+                    <button onclick="closeDeleteTransactionModal()" class="btn2">Hủy</button>
+               </div>
+            </div>
+         </div>
 
 
         <footer> © 2025 Quản Lý Tài Chính Cá Nhân by MinhDuc </footer>
